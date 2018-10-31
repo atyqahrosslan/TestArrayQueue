@@ -1,13 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author User
- */
 public class ArrayQueue implements QueueInterface{
     private Object[]a;
     private int front,back;
@@ -43,8 +34,26 @@ public class ArrayQueue implements QueueInterface{
     }
     
     private void resize(){
-        Object[]aa=a;
+        Object[] aa=a;
         a=new Object[2*aa.length];
         System.arraycopy(aa,front,a,0,size());        
+    }
+    
+    public String toString(){
+        String result;
+        
+        if(size()!=0){
+            result="{";
+            for(int i=0; i<=size()-1;i++){
+                result+=a[i];
+                
+                if(i<size()-1)
+                    result+=", ";
+                else
+                    result+="} ";
+            }
+        }else{
+         result="Empty Queue!";
+        }return result;
     }
 }//end class
